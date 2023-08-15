@@ -1,15 +1,15 @@
-const dayInputValue = document.getElementById("day");
-const monthInputValue = document.getElementById("month");
-const yearInputValue = document.getElementById("year");
-const dateInput = inputs.querrySelectorAll("[require]");
-const getAgeBtn = document.getElementById("new-age");
-const showYear = document.getElementById("years--show");
-const showMonth = document.getElementById("month--show");
-const showDay = document.getElementById("day--show");
-const dayError = document.getElementById("day--error");
-const monthError = document.getElementById("month--error");
-const yearError = document.getElementById("year--error");
-const dateError = document.querySelector(".error--text");
+let dayInputValue = document.getElementById("day");
+let monthInputValue = document.getElementById("month");
+let yearInputValue = document.getElementById("year");
+let dateInput = document.querySelectorAll("[require]");
+let getAgeBtn = document.getElementById("new-age");
+let showYear = document.getElementById("years--show");
+let showMonth = document.getElementById("month--show");
+let showDay = document.getElementById("day--show");
+let dayError = document.getElementById("day--error");
+let monthError = document.getElementById("month--error");
+let yearError = document.getElementById("year--error");
+let dateError = document.querySelectorAll(".error--text");
 
 //make sure inputs are numbers
 const dayInputIntValue = Number(dayInputValue.value);
@@ -22,19 +22,15 @@ const currentDay = currentDate.getDate();
 const currentMonth = currentDate.getMonth() + 1;
 const currentYear = currentDate.getFullYear();
 
-const form = document.querySelector("form");
-form.addEventListener("submit", () => {
-  console.log("submit something");
+getAgeBtn.addEventListener("click", () => {
+  if (
+    dayInputValue.value === "" &&
+    monthInputValue.value === "" &&
+    yearInputValue.value === ""
+  ) {
+    console.log("Hey baby");
+    dateError.forEach((element) => {
+      element.classList.add("error--text--show");
+    });
+  }
 });
-
-//Here what happens when button is clicked
-// getAgeBtn.addEventListener("click", function() => {
-//   console.log("clicked");
-//   let recquiredField = "This field is recquired";
-
-//   console.log(`Whats in day: ${dayInputValue}`);
-//   //validation
-//   if (dayInputValue === "" && monthInputValue === "" && yearInputValue) {
-//     dayError.textContent = dayInputValue.classList.add("error-text");
-//   }
-// });

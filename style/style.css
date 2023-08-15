@@ -44,10 +44,15 @@ h2{
   }
 
  .error--text{
-    /* display: none; */
+    display: none; 
     color: var(--color-lightred);
     font-family: var(--app-font);
     font-size: 0.6rem;
+
+ }
+
+ .error--text--show{
+    display: block;
  }
 
 
@@ -129,6 +134,21 @@ input[type=number] {
 /*RESPONSIVE*/
 
 @media only screen and (min-width: 550px) and (max-width: 900px){
+    .date--inputs--wrapper{
+        grid-template-rows: 2fr 2fr 2fr 2fr;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-right: 0px;
+    }
+
+    .input--wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    input{
+        width: 100%;
+    }
     
 }
 
