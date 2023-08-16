@@ -139,6 +139,7 @@ input[type=number] {
         grid-template-columns: 1fr;
         gap: 10px;
         margin-right: 0px;
+        width: 100%;
     }
 
     .input--wrapper{
@@ -147,12 +148,29 @@ input[type=number] {
     }
     
     input{
-        width: 100%;
+        width: auto;
     }
     
 }
 
 @media only screen and (min-width: 0px) and (max-width: 550px){
+    .date--inputs--wrapper{
+        grid-template-rows: 2fr 2fr 2fr 2fr;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-right: 0px;
+        width: 100%;
+    }
+
+    .input--wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    input{
+        width: auto;
+    }
+
     .divider button{
         right: 120px;
     }

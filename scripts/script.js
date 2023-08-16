@@ -11,10 +11,14 @@ let monthError = document.getElementById("month--error");
 let yearError = document.getElementById("year--error");
 let dateError = document.querySelectorAll(".error--text");
 
-//make sure inputs are numbers
-const dayInputIntValue = Number(dayInput.value);
-const monthInputIntValue = Number(monthInput.value);
-const yearInputIntValue = Number(yearInput.value);
+//to store input values if valid
+let dayInputValue;
+let monthInputValue;
+let yearInputValue;
+// valid date or not
+let isValidDay;
+let isValidMonth;
+let isValidYear;
 
 // get present date and store variables
 const currentDate = new Date();
@@ -22,11 +26,46 @@ const currentDay = currentDate.getDate();
 const currentMonth = currentDate.getMonth() + 1;
 const currentYear = currentDate.getFullYear();
 
+//DAY IN PUT
 dayInput.addEventListener("input", (e) => {
-  let dayInputValue = e.target.value;
-  console.log(dayInputValue);
+  if (e.target.value < 0 || e.target.value > 31) {
+    dayError.textContent = "Must be a valid day";
+    dayError.classList.add("error--text--show");
+  } else {
+    dayError.classList.remove("error--text--show");
+    dayInputValue = Number(e.target.value);
+    isValidDay = true;
+  }
 });
 
+//MONTH INPUT
+monthInput.addEventListener("input", (e) => {
+  if (e.target.value < 0 || e.target.value > 12) {
+    monthError.textContent = "Must be a valid month";
+    monthError.classList.add("error--text--show");
+  } else {
+    monthError.classList.remove("error--text--show");
+    monthInputValue = Number(e.target.value);
+    isValidMonth = true;
+  }
+});
+
+//YEAR INPUT
+yearInput.addEventListener("input", (e) => {
+  if (e.target.value > currentYear) {
+    yearError.textContent = "Must be in the past";
+    yearError.classList.add("error--text--show");
+  } else if (e.target.value < 0) {
+    yearError.textContent = "Year can't be negative";
+    yearError.classList.add("error--text--show");
+  } else {
+    yearError.classList.remove("error--text--show");
+    yearInputValue = Number(e.target.value);
+    isValidYear = true;
+  }
+});
+
+//LISTEN TO BUTTON
 getAgeBtn.addEventListener("click", () => {
   if (
     dayInput.value === "" &&
@@ -39,5 +78,8 @@ getAgeBtn.addEventListener("click", () => {
       monthError.textContent = "This field is recquired";
       yearError.textContent = "This field is recquired";
     });
+  }
+
+  if (!dayInput.value === "" && isValidDay) {
   }
 });
