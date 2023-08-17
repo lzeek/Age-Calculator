@@ -102,8 +102,10 @@ input[type=number] {
 }
 
 .divider{
-    margin-top: 30px;
+    
     position: relative;
+    display: flex;
+    justify-self: center;
 }
 .display--age--column{
     border-top: 1px solid var(--neutralcolor-somkeygrey);
@@ -135,8 +137,8 @@ input[type=number] {
 
 @media only screen and (min-width: 550px) and (max-width: 900px){
     .date--inputs--wrapper{
-        grid-template-rows: 2fr 2fr 2fr 2fr;
-        grid-template-columns: 1fr;
+        /* grid-template-rows: 2fr 2fr 2fr 2fr;
+        grid-template-columns: 1fr; */
         gap: 10px;
         margin-right: 0px;
         width: 100%;
@@ -155,8 +157,8 @@ input[type=number] {
 
 @media only screen and (min-width: 0px) and (max-width: 550px){
     .date--inputs--wrapper{
-        grid-template-rows: 2fr 2fr 2fr 2fr;
-        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 2fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 10px;
         margin-right: 0px;
         width: 100%;
@@ -179,3 +181,4 @@ input[type=number] {
         padding: 30px;
     }
 }
+

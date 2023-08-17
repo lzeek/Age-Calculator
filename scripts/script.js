@@ -16,9 +16,9 @@ let dayInputValue;
 let monthInputValue;
 let yearInputValue;
 // valid date or not
-let isValidDay;
-let isValidMonth;
-let isValidYear;
+let isValidDay = false;
+let isValidMonth = false;
+let isValidYear = false;
 
 // get present date and store variables
 const currentDate = new Date();
@@ -28,7 +28,7 @@ const currentYear = currentDate.getFullYear();
 
 //DAY IN PUT
 dayInput.addEventListener("input", (e) => {
-  if (e.target.value < 0 || e.target.value > 31) {
+  if (e.target.value < 0 || e.target.value >= 31) {
     dayError.textContent = "Must be a valid day";
     dayError.classList.add("error--text--show");
   } else {
@@ -40,7 +40,7 @@ dayInput.addEventListener("input", (e) => {
 
 //MONTH INPUT
 monthInput.addEventListener("input", (e) => {
-  if (e.target.value < 0 || e.target.value > 12) {
+  if (e.target.value < 0 || e.target.value >= 12) {
     monthError.textContent = "Must be a valid month";
     monthError.classList.add("error--text--show");
   } else {
@@ -78,8 +78,17 @@ getAgeBtn.addEventListener("click", () => {
       monthError.textContent = "This field is recquired";
       yearError.textContent = "This field is recquired";
     });
-  }
-
-  if (!dayInput.value === "" && isValidDay) {
+  } else if (isValidDay && isValidMonth && isValidYear) {
+    showDay.textContent = `${
+      currentDay > dayInputValue
+        ? currentDay - dayInputValue
+        : dayInputValue - currentDay
+    }`;
+    showMonth.textContent = `${
+      currentMonth > dayInputValue
+        ? currentMonth - monthInputValue
+        : monthInputValue - currentMonth
+    }`;
+    showYear.textContent = `${currentYear - yearInputValue}`;
   }
 });
